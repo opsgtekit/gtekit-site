@@ -2,118 +2,1110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>GTek IT – IT Services, Consulting & Development</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GTek IT</title>
+  <meta
+    name="description"
+    content="GTek IT designs, secures, and supports IT infrastructure and builds custom software for small businesses, independent professionals, and growing teams."
+  />
   <style>
+    :root {
+      --bg: #05070b;
+      --bg-alt: #0b1018;
+      --accent: #2fb4ff;
+      --accent-soft: rgba(47, 180, 255, 0.12);
+      --text: #f5f7fb;
+      --text-muted: #a5afc7;
+      --border: #252b3a;
+      --card: #0e1420;
+      --max-width: 1120px;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f9fafc;
-      color: #333;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10182b 0, #05070b 48%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      background: linear-gradient(135deg, #0a2540, #153e75);
-      color: #fff;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    header img {
-      max-width: 180px;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem;
-    }
-    .icons {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    h2 {
-      margin-top: 0;
-      color: #0a2540;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: #0a2540;
-      color: #fff;
+
+    a {
+      color: inherit;
       text-decoration: none;
-      border-radius: 5px;
-      margin-top: 1rem;
-      transition: background 0.3s ease;
     }
-    .btn:hover {
-      background: #153e75;
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    footer {
+
+    header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 7, 11, 0.9),
+        rgba(5, 7, 11, 0.75),
+        transparent
+      );
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #4fd3ff 30%, #004d88 100%);
+      box-shadow: 0 0 18px rgba(47, 180, 255, 0.65);
+    }
+
+    .brand-img {
+      width: 34px;
+      height: 34px;
+      padding: 4px;
+      border-radius: 9px;
+      background: #ffffff;
+      box-shadow: 0 0 16px rgba(47, 180, 255, 0.45);
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .brand-text span:last-child {
+      font-weight: 600;
+      font-size: 1.02rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      align-items: center;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(47, 180, 255, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(47, 180, 255, 0.18), transparent);
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-cta span {
+      font-size: 1.05rem;
+      transform: translateY(1px);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.2rem 1.25rem;
+    }
+
+    .hero {
+      padding-top: 3.1rem;
+      padding-bottom: 3.1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.3fr);
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 151, 255, 0.18);
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(47, 180, 255, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 3vw + 1.6rem, 3.1rem);
+      line-height: 1.03;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, #2fb4ff, #9ae6ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.9rem;
+    }
+
+    .badge {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(6, 9, 18, 0.9);
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #2fb4ff, #4fe0ff);
+      color: #020308;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 14px 30px rgba(47, 180, 255, 0.45);
+    }
+
+    .btn-primary span {
+      font-size: 1.1rem;
+      transform: translateY(1px);
+    }
+
+    .btn-ghost {
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(6, 9, 18, 0.9);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-meta {
+      margin-top: 1.4rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      color: #d6def5;
+    }
+
+    .hero-visual {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(
+          circle at top left,
+          rgba(47, 180, 255, 0.12),
+          transparent 55%
+        ),
+        radial-gradient(circle at bottom right, #03040a, #020308 60%);
+      padding: 1.1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual-inner {
+      border-radius: calc(var(--radius-xl) - 6px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 1.1rem;
+      background: radial-gradient(circle at top, #111827, #05070b 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px
+        );
+      background-size: 36px 36px;
+      opacity: 0.35;
+      mask-image: radial-gradient(circle at center, black 0, transparent 75%);
+      pointer-events: none;
+    }
+
+    .hero-kpi-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .kpi-card {
+      flex: 1 1 120px;
+      min-width: 0;
+      padding: 0.8rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(3, 6, 18, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .kpi-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .kpi-pill {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.7rem;
+      font-size: 0.7rem;
+      padding: 0.17rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 151, 255, 0.2);
+      color: var(--accent);
+    }
+
+    .diagram {
+      margin-top: 0.6rem;
+      padding: 2.3rem 0.9rem 0.95rem;
+      border-radius: 14px;
+      border: 1px dashed rgba(255, 255, 255, 0.27);
+      background: radial-gradient(circle at center, #070b13, #020308);
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.1fr;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diagram-col h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d5e3ff;
+      margin-bottom: 0.35rem;
+    }
+
+    .diagram-col ul {
+      list-style: none;
+    }
+
+    .diagram-col li {
+      margin-bottom: 0.2rem;
+    }
+
+    .diagram-tag {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.65rem;
+      font-size: 0.72rem;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .section-heading {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #777;
-      background: #f1f1f1;
-      margin-top: 3rem;
+      max-width: 40rem;
+      margin: 0 auto 1.8rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+    }
+
+    .pill-row span {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: linear-gradient(
+        145deg,
+        rgba(19, 26, 40, 0.96),
+        rgba(4, 8, 18, 0.97)
+      );
+      padding: 1rem;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .card ul li::before {
+      content: "•";
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+
+    .metrics-band {
+      margin-top: 2.1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(
+        circle at left,
+        rgba(47, 180, 255, 0.18),
+        rgba(4, 7, 16, 0.95)
+      );
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .metrics-band strong {
+      color: #e8f1ff;
+    }
+
+    .metrics-band-item {
+      min-width: 140px;
+    }
+
+    .metrics-band-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(224, 235, 255, 0.75);
+      margin-bottom: 0.15rem;
+    }
+
+    .metrics-band-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-top: 0.6rem;
+    }
+
+    .list {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .list h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+      color: #e1e8ff;
+    }
+
+    .list ul {
+      list-style: none;
+    }
+
+    .list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .list li::before {
+      content: "—";
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #101624, #05060b);
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .panel h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+      color: #e1e8ff;
+    }
+
+    .panel-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+      display: inline-block;
+    }
+
+    .panel-rows {
+      margin-top: 0.4rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .panel-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .panel-row span:first-child {
+      color: var(--text-muted);
+    }
+
+    .panel-row span:last-child {
+      color: #e1e8ff;
+    }
+
+    .contact {
+      margin-top: 2.3rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(
+        circle at right,
+        rgba(47, 180, 255, 0.16),
+        rgba(3, 5, 12, 0.98)
+      );
+      padding: 1.4rem 1.2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 2fr);
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    .contact-meta {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .field label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(3, 5, 12, 0.96);
+      padding: 0.55rem 0.7rem;
+      color: var(--text);
+      font: inherit;
+      resize: vertical;
+      min-height: 36px;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(165, 175, 199, 0.6);
+    }
+
+    .contact-submit {
+      justify-self: flex-start;
+      margin-top: 0.2rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      margin-top: 2.6rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.2rem 1.25rem 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 840px) {
+      .hero,
+      .contact,
+      .two-col,
+      .three-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.2rem;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-badges,
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .metrics-band {
+        flex-direction: column;
+      }
+
+      .diagram {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <a href="#top" class="brand">
+          <img class="brand-img" src="logo-mark.png" alt="GTek IT logo"
+            onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'brand-logo'}))" />
+          <div class="brand-text">
+            <span>IT Services &amp; Consulting</span>
+            <span>GTek IT</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#clients">Who we help</a>
+          <a href="#edge">Why GTek IT</a>
+          <a href="#contact">Contact</a>
+          <a href="mailto:ops@gtekit.com" class="nav-cta">
+            Contact us <span>↗</span>
+          </a>
+        </nav>
+      </div>
+    </header>
 
-  <header>
-    <!-- Logo Integration -->
-    <img src="logo.png" alt="GTek Asset Logo" />
-    <p>Smart Capital. Smarter Solutions.</p>
-  </header>
+    <main id="top">
+      <!-- HERO -->
+      <section class="section hero">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>IT services, consulting &amp; dev</span>
+          </div>
+          <h1>
+            Technology and software for
+            <span>businesses that can’t afford downtime.</span>
+          </h1>
+          <p class="hero-subtitle">
+            GTek IT designs, secures, and supports the systems your business runs
+            on: cloud and networks, security, and custom tools that keep working
+            when you need them most.
+          </p>
 
-  <section>
-    <div class="card">
-      <div class="icons">📈</div>
-      <h2>About Us</h2>
-      <p>
-        GTek IT is a forward-looking business initiative focused on capital building
-        through trading and technology. Our mission is to transform profits into 
-        purpose — funding projects that create real-world impact.
-      </p>
-    </div>
+          <div class="hero-badges">
+            <span class="badge">Infrastructure &amp; cloud</span>
+            <span class="badge">IT consulting &amp; security</span>
+            <span class="badge">Custom dev &amp; automation</span>
+          </div>
 
-    <div class="card">
-      <div class="icons">🎯</div>
-      <h2>Our Mission</h2>
-      <p>
-        We combine smart investment strategies with a vision for community betterment.
-        From trading to social initiatives, GTek IT is committed to growth with meaning.
-      </p>
-    </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              Schedule an IT review
+              <span>➝</span>
+            </a>
+            <a href="#services" class="btn-ghost">
+              View services
+            </a>
+          </div>
 
-    <div class="card">
-      <div class="icons">✉️</div>
-      <h2>Stay Connected</h2>
-      <p>
-        We’re building something exciting. For inquiries or opportunities:
-      </p>
-      <a href="mailto:info@gtekit.com" class="btn">Contact Us</a>
-    </div>
-  </section>
+          <p class="hero-meta">
+            <strong>Typical clients:</strong> small businesses, independent
+            professionals, and startups that rely on dependable technology.
+          </p>
+        </div>
 
-  <footer>
-    <p>&copy; 2025 GTek IT. All Rights Reserved.</p>
-  </footer>
+        <aside class="hero-visual" aria-hidden="true">
+          <div class="hero-visual-inner">
+            <div class="grid-lines"></div>
+            <div class="hero-kpi-row">
+              <div class="kpi-card">
+                <div class="kpi-label">Response Target</div>
+                <div class="kpi-value">Same day</div>
+                <div class="kpi-sub">For active support requests.</div>
+                <div class="kpi-pill">Support</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Engagements</div>
+                <div class="kpi-value">Fixed scope</div>
+                <div class="kpi-sub">Defined deliverables up front.</div>
+                <div class="kpi-pill">Clear</div>
+              </div>
+            </div>
 
+            <div class="diagram">
+              <div class="diagram-tag">IT Stack Blueprint</div>
+              <div class="diagram-col">
+                <h4>Infrastructure</h4>
+                <ul>
+                  <li>Cloud &amp; on-prem servers</li>
+                  <li>Networks, DNS &amp; domains</li>
+                  <li>Backups &amp; failover</li>
+                </ul>
+              </div>
+              <div class="diagram-col">
+                <h4>Security</h4>
+                <ul>
+                  <li>Identity &amp; access control</li>
+                  <li>Hardened configs</li>
+                  <li>Monitoring &amp; logs</li>
+                </ul>
+              </div>
+              <div class="diagram-col">
+                <h4>Apps</h4>
+                <ul>
+                  <li>Custom tools &amp; dashboards</li>
+                  <li>Workflow automation</li>
+                  <li>API integrations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="section">
+        <div class="section-heading">
+          <h2>What we actually do</h2>
+          <p>
+            A focused set of IT services and custom development. No generic
+            “digital transformation” fluff — just the pieces that keep your
+            business running.
+          </p>
+          <div class="pill-row">
+            <span>Infrastructure &amp; cloud</span>
+            <span>Consulting &amp; security</span>
+            <span>Custom dev &amp; automation</span>
+          </div>
+        </div>
+
+        <div class="three-col">
+          <article class="card">
+            <small>01 — Infrastructure &amp; Cloud</small>
+            <h3>Design &amp; build systems that stay up</h3>
+            <p>
+              From a single office to a distributed team: infrastructure sized
+              to how your business actually works.
+            </p>
+            <ul>
+              <li>Cloud, on-prem &amp; hybrid setups</li>
+              <li>Networks, DNS, and domains</li>
+              <li>Backups, redundancy, and failover</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <small>02 — Consulting &amp; Hardening</small>
+            <h3>Find the weak links before they break</h3>
+            <p>
+              Review your current setup and lock down the gaps that lead to
+              outages, data loss, or breaches.
+            </p>
+            <ul>
+              <li>IT and security reviews</li>
+              <li>Hardening of access, keys, and config</li>
+              <li>Runbooks for “this just broke” moments</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <small>03 — Development &amp; Tools</small>
+            <h3>Custom software that matches your workflow</h3>
+            <p>
+              Build the glue: dashboards, automations, and tools that sit on top
+              of your systems and actually get used.
+            </p>
+            <ul>
+              <li>Internal dashboards &amp; control panels</li>
+              <li>Automation around recurring tasks</li>
+              <li>Integrations with APIs, platforms, and data</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="metrics-band">
+          <div class="metrics-band-item">
+            <div class="metrics-band-label">Engagement model</div>
+            <div class="metrics-band-value">Hands-on infra + dev, not slideware</div>
+          </div>
+          <div class="metrics-band-item">
+            <div class="metrics-band-label">Focus</div>
+            <div class="metrics-band-value">Small teams &amp; independent operators</div>
+          </div>
+          <div class="metrics-band-item">
+            <div class="metrics-band-label">Outcome</div>
+            <div class="metrics-band-value">Fewer outages, less manual work</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO WE HELP -->
+      <section id="clients" class="section">
+        <div class="section-heading">
+          <h2>Who this is for</h2>
+          <p>
+            Teams without a full-time IT department that still need
+            professional-grade systems: predictable, secure, and under control.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="list">
+            <h3>Typical clients</h3>
+            <ul>
+              <li>Small businesses that need reliable IT without an in-house team.</li>
+              <li>Independent professionals and consultants running lean.</li>
+              <li>Startups that need infrastructure that scales as they grow.</li>
+              <li>Growing teams moving from ad-hoc setups to managed systems.</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <span class="panel-tag">Signals you need GTek IT</span>
+            <h3>Reality check on your current setup</h3>
+            <div class="panel-rows">
+              <div class="panel-row">
+                <span>Reliability</span>
+                <span>Systems slow down or fail at the worst time</span>
+              </div>
+              <div class="panel-row">
+                <span>Ownership</span>
+                <span>Nobody knows how things are set up</span>
+              </div>
+              <div class="panel-row">
+                <span>Security</span>
+                <span>Shared passwords and no tested backups</span>
+              </div>
+              <div class="panel-row">
+                <span>Workflows</span>
+                <span>Manual steps and fragile one-off scripts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY GTEK IT -->
+      <section id="edge" class="section">
+        <div class="section-heading">
+          <h2>Why GTek IT?</h2>
+          <p>
+            Because we build around how your business actually runs, not around
+            selling you more tools.
+          </p>
+        </div>
+
+        <div class="three-col">
+          <article class="card">
+            <small>Practical first</small>
+            <h3>Your operations drive the design</h3>
+            <p>
+              Business hours, peak periods, the tools your team already uses —
+              the real world of how you work is the input to the architecture.
+            </p>
+          </article>
+
+          <article class="card">
+            <small>Infra + dev under one roof</small>
+            <h3>One place for systems and software</h3>
+            <p>
+              The same team that designs your infrastructure can ship the tools
+              on top of it, so nothing gets lost between “IT” and “dev.”
+            </p>
+          </article>
+
+          <article class="card">
+            <small>Clear scope</small>
+            <h3>Defined work, measurable outcomes</h3>
+            <p>
+              Fixed scopes where possible, clear milestones otherwise. You know
+              what we’re touching and how we’ll measure it.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="contact">
+          <div>
+            <h2>Start with a 30-minute IT review</h2>
+            <p>
+              We walk through your current setup, pain points, and constraints —
+              infrastructure, tools, and workflows — and outline what a more
+              reliable, secure setup looks like for your business.
+            </p>
+            <div class="contact-meta">
+              Remote call with screenshare. If you have diagrams, screenshots, or
+              existing docs, send them ahead of time.
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@company.com" required />
+            </div>
+            <div class="field">
+              <label for="message">Setup &amp; issues</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                placeholder="Systems, tools, and what keeps breaking or slowing you down."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary contact-submit">
+              Email GTek IT
+              <span>✉</span>
+            </button>
+            <div class="contact-meta">
+              Or email directly:
+              <a href="mailto:ops@gtekit.com">ops@gtekit.com</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          © <span id="year"></span> GTek IT, operated by GTEK ASSET, INC. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#top">Back to top</a>
+          <a href="mailto:ops@gtekit.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var subject = "IT review request from " + f.name.value;
+      var body = "Name: " + f.name.value + "\nEmail: " + f.email.value + "\n\n" + f.message.value;
+      window.location.href = "mailto:ops@gtekit.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+  </script>
 </body>
 </html>
