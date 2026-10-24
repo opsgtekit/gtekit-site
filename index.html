@@ -13,8 +13,11 @@
     :root {
       --bg: #05070b;
       --bg-alt: #0b1018;
-      --accent: #2fb4ff;
-      --accent-soft: rgba(47, 180, 255, 0.12);
+      --accent: #8b7dff;
+      --accent-rgb: 139, 125, 255;
+      --accent-2: #c9c0ff;
+      --glow: #17142e;
+      --accent-soft: rgba(var(--accent-rgb), 0.12);
       --text: #f5f7fb;
       --text-muted: #a5afc7;
       --border: #252b3a;
@@ -34,7 +37,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #10182b 0, #05070b 48%, #000 100%);
+      background: radial-gradient(circle at top, var(--glow) 0, #05070b 48%, #000 100%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -85,8 +88,8 @@
       width: 32px;
       height: 32px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff, #4fd3ff 30%, #004d88 100%);
-      box-shadow: 0 0 18px rgba(47, 180, 255, 0.65);
+      background: radial-gradient(circle at 30% 20%, #ffffff, var(--accent-2) 30%, var(--accent) 100%);
+      box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.65);
     }
 
     .brand-img {
@@ -95,7 +98,7 @@
       padding: 4px;
       border-radius: 9px;
       background: #ffffff;
-      box-shadow: 0 0 16px rgba(47, 180, 255, 0.45);
+      box-shadow: 0 0 16px rgba(var(--accent-rgb), 0.45);
       object-fit: contain;
       display: block;
     }
@@ -149,8 +152,8 @@
     .nav-cta {
       padding: 0.55rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid rgba(47, 180, 255, 0.7);
-      background: radial-gradient(circle at 0 0, rgba(47, 180, 255, 0.18), transparent);
+      border: 1px solid rgba(var(--accent-rgb), 0.7);
+      background: radial-gradient(circle at 0 0, rgba(var(--accent-rgb), 0.18), transparent);
       font-size: 0.86rem;
       font-weight: 500;
       color: var(--accent);
@@ -189,7 +192,7 @@
       gap: 0.45rem;
       padding: 0.2rem 0.7rem;
       border-radius: 999px;
-      background: rgba(15, 151, 255, 0.18);
+      background: rgba(var(--accent-rgb), 0.18);
       color: var(--accent);
       font-size: 0.78rem;
       letter-spacing: 0.18em;
@@ -202,7 +205,7 @@
       height: 6px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 10px rgba(47, 180, 255, 0.9);
+      box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.9);
     }
 
     .hero h1 {
@@ -212,7 +215,7 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(120deg, #2fb4ff, #9ae6ff);
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -253,14 +256,14 @@
       border: none;
       outline: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #2fb4ff, #4fe0ff);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #020308;
       font-size: 0.95rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      box-shadow: 0 14px 30px rgba(47, 180, 255, 0.45);
+      box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.45);
     }
 
     .btn-primary span {
@@ -295,7 +298,7 @@
       border: 1px solid var(--border);
       background: radial-gradient(
           circle at top left,
-          rgba(47, 180, 255, 0.12),
+          rgba(var(--accent-rgb), 0.12),
           transparent 55%
         ),
         radial-gradient(circle at bottom right, #03040a, #020308 60%);
@@ -376,7 +379,7 @@
       font-size: 0.7rem;
       padding: 0.17rem 0.5rem;
       border-radius: 999px;
-      background: rgba(15, 151, 255, 0.2);
+      background: rgba(var(--accent-rgb), 0.2);
       color: var(--accent);
     }
 
@@ -510,7 +513,7 @@
       border: 1px solid var(--border);
       background: radial-gradient(
         circle at left,
-        rgba(47, 180, 255, 0.18),
+        rgba(var(--accent-rgb), 0.18),
         rgba(4, 7, 16, 0.95)
       );
       padding: 0.9rem 1.1rem;
@@ -627,7 +630,7 @@
       border: 1px solid var(--border);
       background: radial-gradient(
         circle at right,
-        rgba(47, 180, 255, 0.16),
+        rgba(var(--accent-rgb), 0.16),
         rgba(3, 5, 12, 0.98)
       );
       padding: 1.4rem 1.2rem;
