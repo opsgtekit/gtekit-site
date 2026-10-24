@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>GTek IT – IT Services, Consulting & Development</title>
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preload" href="fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
@@ -761,6 +762,28 @@
       .diagram {
         grid-template-columns: minmax(0, 1fr);
       }
+    }
+    /* Heading font: Plus Jakarta Sans (self-hosted, SIL Open Font License) */
+    @font-face {
+      font-family: "Plus Jakarta Sans";
+      src: url("fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2");
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Plus Jakarta Sans";
+      src: url("fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand-text span:last-child {
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      letter-spacing: -0.01em;
     }
   </style>
 </head>
